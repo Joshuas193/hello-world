@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+  Author: Joshua Swartzell
+  Date October 30, 2019
+  Charts.JS tutorial -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>My Chart.JS Chart</title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <script>
+    var myChart = document.getElementById('myChart').getContext('2d');
+
+    //global defaults
+    Chart.defaults.global.defaultFontFamily = 'Arial';
+    Chart.defaults.global.defaultFontsize = 20;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    var massPopChart = new Chart(myChart, {
+      type:'horizontalBar', // bar, horizontalBar, pie, doughnut, radar, line, polarArea
+      data:{
+        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[{
+          label:'Population',
+          data:[
+            617594,
+            181045,
+            153060,
+            106519,
+            105162,
+            95072
+          ],
+          //  backgroundColor:'green'
+          backgroundColor:[
+          '#D92020',
+          '#412EE5',
+          '#13F073',
+          '#E7FE13',
+          '#FE9113',
+          '#13FEF6'
+        ],
+        borderWidth:1,
+        borderColor:'#6A6E6E',
+        hoverBorderWidth:2,
+        hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Largest Cities in Massachusetts',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
